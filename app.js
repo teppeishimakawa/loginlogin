@@ -22,11 +22,13 @@ var logger = require('morgan');
 var session = require('express-session');
 
 
-var indexRouter = require('./routes/route.js');
+var index = require('./routes/index.js');
 //var usersRouter = require('./routes/users.js');
 var boards = require('./routes/boards.js');
 var register = require('./routes/register.js');
 var login = require('./routes/login.js');　
+var logout = require('./routes/logout.js');
+var setUser = require('./routes/setUser.js');
 
 
 var app = express();
@@ -53,15 +55,16 @@ app.use(session({
 
 //!!!!　/は自分のファイル。ここがapp.jsから出発したpathの基準
 // /でreqされたらroute.js発動
-app.use('/', indexRouter);
+//routesの前にsetUserが渡すことによってroutesの処理が実行される前にsetUserを実行。
+app.use('/', setUser, index);
 //app.use('/users', usersRouter);
 
 //!!!!ここがapp.jsから出発したpathの基準。cssファイル当てる時大事
 /*get,postで/boardsのreqm受けた時はvar boards = require('./routes/boards.js');発動*/
-app.use('/boards', boards);
+app.use('/boards', setUser, boards);
 app.use('/register', register);
 app.use('/login', login);
-
+app.use('/logout', logout);
 
 
 // catch 404 and forward to error handler

@@ -23,12 +23,14 @@
             <li class="main-list__item">
                 <a href="/boards/<%= boardItem.board_id %>" class="board">
                     <p class="board__title"><%= boardItem.title %></p>
-                    <p class="board__date"><%= boardItem.created_at %></p>
+                    <p class="board__date"><%= boardItem.user_name %> <%= boardItem.created_at %></p>
                 </a>
             </li>
         <% }); %>
     </ul>
-
+    <% if (typeof user !== 'undefined') { %>
+        <span class="login-user"><%= user.user_name %>さんとしてログインしています</span>
+    <% } %>
 </div>
 </body>
 </html>

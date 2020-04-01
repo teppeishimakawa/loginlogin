@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var connection = require('./mysqlConnection');
+var connection = require('./mysqlConnection.js');
 
 router.get('/', function(req, res, next) {
   if (req.session.user_id) {
@@ -21,6 +21,7 @@ router.post('/', function(req, res, next) {
     var userId = rows.length? rows[0].user_id: false;
     if (userId) {
 // '/'にリダイレクトする前にセッションにユーザーIDを保存しています。←超重要
+//req.session以下にデータを格納することでセッションへのデータ格納が実現できます。
       req.session.user_id = userId;
       res.redirect('/');
     } else {
