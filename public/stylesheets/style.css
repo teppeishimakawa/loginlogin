@@ -200,6 +200,7 @@ input:-webkit-autofill, textarea:-webkit-autofill {
     font-weight: bold;
     color: #fff;
     background-color: #F08080;
+    text-align: center;
 }
 .submit {
     display: inline-block;

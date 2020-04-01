@@ -18,12 +18,13 @@
 
 <!--EJSではView側に配列が渡された場合に配列のforEach(function() {});というメソッドを使って展開していきます。forEach内のcallback関数の第一引数には配列内のオブジェクトがひとつずつ入っています。-->
     <ul class="main-list">
+        <!--boardItemはサーバから支給されるDBのboard[0]-->
         <% boardList.forEach(function(boardItem) { %>
             <li class="main-list__item">
-                <div class="board">
+                <a href="/boards/<%= boardItem.board_id %>" class="board">
                     <p class="board__title"><%= boardItem.title %></p>
                     <p class="board__date"><%= boardItem.created_at %></p>
-                </div>
+                </a>
             </li>
         <% }); %>
     </ul>

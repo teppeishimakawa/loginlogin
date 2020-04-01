@@ -1,3 +1,6 @@
+/*queryをネスト化する理由は、関数が非同期処理なため。同一関数内なら上から
+順次処理する、同期処理になる*/
+
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
