@@ -125,7 +125,7 @@ input:-webkit-autofill, textarea:-webkit-autofill {
 .message__image {
     display: block;
     margin-bottom: 10px;
-    width: 100%;
+    width: 30%;
     height: 70px;
     background-size: cover;
     background-position: center;

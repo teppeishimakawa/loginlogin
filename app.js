@@ -19,6 +19,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+//session利用用のモジュール
 var session = require('express-session');
 
 
@@ -32,9 +33,12 @@ var setUser = require('./routes/setUser.js');
 
 
 var app = express();
+//部品共通化モジュール
+var engine = require('ejs-locals');
 
 
 // view engine setup
+app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

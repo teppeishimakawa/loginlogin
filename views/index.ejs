@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,12 +11,13 @@
   </head>
   <body>
 <div class="wrapper">
-
+<% layout('layout.ejs') %>
   <form action="/" method="post" class="board-form">
     タイトル: <input type="text" name="title" class="input" required><br>
     <br>
     <button type="submit" class="submit">ボード作成</button>
   </form>
+
 
 <!--EJSではView側に配列が渡された場合に配列のforEach(function() {});というメソッドを使って展開していきます。forEach内のcallback関数の第一引数には配列内のオブジェクトがひとつずつ入っています。-->
     <ul class="main-list">
